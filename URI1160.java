@@ -1,36 +1,33 @@
 import java.util.Scanner;
-
-public class URI1160 {
+public class URI1160{
     public static void main(String args[]){
-        Scanner teclado;
-        teclado = new Scanner(System.in);
-        int quantidade = teclado.nextInt();
-        int pa, pb;
-        float ga,gb;
+        Scanner teclado = new Scanner(System.in);
+        int PA, PB;
+        int tempo, T;
+        float G1, G2;
 
-
-        for (int i=0; i < quantidade; i++){
-            
-            pa =  teclado.nextInt();
-            pb =  teclado.nextInt();
-            ga =  teclado.nextFloat();
-            gb =  teclado.nextFloat();
-            
-            int resto = 0;
-            pa =(int)(pa+pa*ga/100);
-            pb = (int)(pb+pb*gb/100);
-
+        T = teclado.nextInt();
+        for (int i=0; i<T; i++){
+            // vou resolver para 1 caso
+            PA = teclado.nextInt();
+            PB = teclado.nextInt();
+            G1 = teclado.nextFloat();
+            G2 = teclado.nextFloat();
+            tempo = 0;
             do{
-                pa =  (pa+pa)/100;
-                resto = resto+1;
-
-                if (resto >= 100){
-                    System.out.println("Mais de 1 seculo");
+                PA = (int)(PA + PA*G1/100);
+                PB = (int)(PB + PB*G2/100);
+                tempo++;
+                if (tempo > 100){
                     break;
                 }
-
-            }while (pa <= pb);
-           System.out.println(+resto);
+            } while(PA <= PB);
+            if (tempo > 100){
+                System.out.println("Mais de 1 seculo.");
+            }
+            else{
+                System.out.println(tempo+" anos.");
+            }
         }
     }
 }
